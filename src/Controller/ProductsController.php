@@ -20,8 +20,15 @@ class ProductsController extends AbstractController
      */
     public function index(ProductsRepository $productsRepository): Response
     {
+        $page_btn = [
+          'page_path' => 'products_new',
+          'icon_path' => 'img/icons/add.png'
+        ];
+
+
         return $this->render('products/index.html.twig', [
             'products' => $productsRepository->findAll(),
+            'page_btn' => $page_btn
         ]);
     }
 
@@ -30,6 +37,12 @@ class ProductsController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
+        $page_btn = [
+            'page_path' => 'products_index',
+            'icon_path' => 'img/icons/back.png'
+        ];
+
         $product = new Products();
         $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
@@ -43,8 +56,9 @@ class ProductsController extends AbstractController
         }
 
         return $this->render('products/new.html.twig', [
-            'product' => $product,
-            'form' => $form->createView(),
+            'product'   => $product,
+            'form'      => $form->createView(),
+            'page_btn'  => $page_btn,
         ]);
     }
 
@@ -53,8 +67,19 @@ class ProductsController extends AbstractController
      */
     public function show(Products $product): Response
     {
+        $page_btn = [
+            'page_path' => 'products_index',
+            'icon_path' => 'img/icons/back.png'
+        ];
+
+        $btn_delete = [
+            'icon_path' => 'img/icons/delete.png'
+        ];
+
         return $this->render('products/show.html.twig', [
-            'product' => $product,
+            'product'     => $product,
+            'page_btn'    => $page_btn,
+            'btn_delete'  => $btn_delete
         ]);
     }
 
@@ -63,6 +88,11 @@ class ProductsController extends AbstractController
      */
     public function edit(Request $request, Products $product): Response
     {
+        $page_btn = [
+            'page_path' => 'products_index',
+            'icon_path' => 'img/icons/back.png'
+        ];
+
         $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
 
@@ -75,6 +105,7 @@ class ProductsController extends AbstractController
         return $this->render('products/edit.html.twig', [
             'product' => $product,
             'form' => $form->createView(),
+            'page_btn' => $page_btn
         ]);
     }
 

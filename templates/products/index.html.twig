@@ -15,11 +15,11 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Name</th>
-                                <th>Dimensions</th>
-                                <th>Weight</th>
-                                <th>actions</th>
+                                <th>Código</th>
+                                <th>Nome</th>
+                                <th>Dimensões</th>
+                                <th>Peso</th>
+                                <th>Opções</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,13 +36,11 @@
                             </tr>
                         {% else %}
                             <tr>
-                                <td colspan="5">no records found</td>
+                                <td colspan="5">Nenhum produto foi encontrado.</td>
                             </tr>
                         {% endfor %}
                         </tbody>
                     </table>
-
-                    <a href="{{ path('products_new') }}">Create new</a>
                 </div>
             </div>
         </div>

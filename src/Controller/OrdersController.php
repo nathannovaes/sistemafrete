@@ -20,8 +20,14 @@ class OrdersController extends AbstractController
      */
     public function index(OrdersRepository $ordersRepository): Response
     {
+        $page_btn = [
+            'page_path' => 'orders_new',
+            'icon_path' => 'img/icons/add.png'
+        ];
+
         return $this->render('orders/index.html.twig', [
             'orders' => $ordersRepository->findAll(),
+            'page_btn' => $page_btn
         ]);
     }
 
@@ -30,6 +36,11 @@ class OrdersController extends AbstractController
      */
     public function new(Request $request): Response
     {
+        $page_btn = [
+            'page_path' => 'orders_index',
+            'icon_path' => 'img/icons/back.png'
+        ];
+
         $order = new Orders();
         $form = $this->createForm(OrdersType::class, $order);
         $form->handleRequest($request);
@@ -45,6 +56,7 @@ class OrdersController extends AbstractController
         return $this->render('orders/new.html.twig', [
             'order' => $order,
             'form' => $form->createView(),
+            'page_btn' => $page_btn
         ]);
     }
 
@@ -53,8 +65,14 @@ class OrdersController extends AbstractController
      */
     public function show(Orders $order): Response
     {
+        $page_btn = [
+            'page_path' => 'orders_index',
+            'icon_path' => 'img/icons/back.png'
+        ];
+
         return $this->render('orders/show.html.twig', [
             'order' => $order,
+            'page_btn' => $page_btn
         ]);
     }
 
@@ -63,6 +81,12 @@ class OrdersController extends AbstractController
      */
     public function edit(Request $request, Orders $order): Response
     {
+
+        $page_btn = [
+            'page_path' => 'orders_index',
+            'icon_path' => 'img/icons/back.png'
+        ];
+
         $form = $this->createForm(OrdersType::class, $order);
         $form->handleRequest($request);
 
@@ -75,6 +99,7 @@ class OrdersController extends AbstractController
         return $this->render('orders/edit.html.twig', [
             'order' => $order,
             'form' => $form->createView(),
+            'page_btn' => $page_btn
         ]);
     }
 

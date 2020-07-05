@@ -1,4 +1,4 @@
-#products_salvar {
+#products_salvar, #orders_salvar {
     width: 100%;
     border-radius: 20px;
     padding: .600rem .75rem;
@@ -8,6 +8,10 @@
 
 body {
     background-color: #d4d2d2;
+}
+
+.navbar {
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .box-title {
@@ -41,4 +45,19 @@ body {
 
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-top: 12px;
+}
+
+.btn-menu {
+    border-radius: 50%;
+    padding: 10px 13px;
+    background-color: #30a0b8;
+}
+
+.btn-menu:hover {
+    background-color: #1e6676;
+}
+
+.btn-danger {
+    border-radius: 50%;
+    padding: 10px 13px;
 }

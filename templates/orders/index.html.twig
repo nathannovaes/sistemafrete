@@ -15,10 +15,10 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Cep_origin</th>
-                                <th>Cep_destiny</th>
-                                <th>actions</th>
+                                <th>Código</th>
+                                <th>Cep Origem</th>
+                                <th>Cep Destino</th>
+                                <th>Opções</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -34,13 +34,11 @@
                                 </tr>
                             {% else %}
                                 <tr>
-                                    <td colspan="4">no records found</td>
+                                    <td colspan="4">Nenhum pedido foi encontrado.</td>
                                 </tr>
                             {% endfor %}
                             </tbody>
                         </table>
-
-                        <a href="{{ path('orders_new') }}">Create new</a>
                     </div>
                 </div>
             </div>
