@@ -3,11 +3,18 @@
 {% block title %}Edit Orders{% endblock %}
 
 {% block body %}
-    <h1>Edit Orders</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="box-title">
+                    <h4>EDITAR PEDIDO</h4>
+                </div>
+                {{ include('orders/_form.html.twig', {'button_label': 'Update'}) }}
 
-    {{ include('orders/_form.html.twig', {'button_label': 'Update'}) }}
+                <a href="{{ path('orders_index') }}">back to list</a>
 
-    <a href="{{ path('orders_index') }}">back to list</a>
-
-    {{ include('orders/_delete_form.html.twig') }}
+                {{ include('orders/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
