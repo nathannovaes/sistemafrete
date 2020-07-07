@@ -32,6 +32,20 @@ class Products
      */
     private $weight;
 
+    /**
+     * Products constructor.
+     * @param $id
+     * @param $name
+     * @param $dimensions
+     * @param $weight
+     */
+    public function __construct($name, $dimensions, $weight)
+    {
+        $this->name = $name;
+        $this->dimensions = $dimensions;
+        $this->weight = $weight;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

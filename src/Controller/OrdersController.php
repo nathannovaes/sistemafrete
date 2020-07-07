@@ -41,11 +41,14 @@ class OrdersController extends AbstractController
             'icon_path' => 'img/icons/back.png'
         ];
 
+
         $order = new Orders();
         $form = $this->createForm(OrdersType::class, $order);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($order);
             $entityManager->flush();
@@ -70,9 +73,22 @@ class OrdersController extends AbstractController
             'icon_path' => 'img/icons/back.png'
         ];
 
+        $btn_delete = [
+            'icon_path' => 'img/icons/delete.png',
+            'form'      => 'orders/_delete_form.html.twig'
+        ];
+
+        $btn_edit_order = [
+            'page_path' => 'orders_edit',
+            'icon_path' => 'img/icons/edit.png',
+        ];
+
+
         return $this->render('orders/show.html.twig', [
-            'order' => $order,
-            'page_btn' => $page_btn
+            'order'            => $order,
+            'page_btn'         => $page_btn,
+            'btn_delete'       => $btn_delete,
+            'btn_edit_orders'   => $btn_edit_order
         ]);
     }
 
@@ -87,6 +103,11 @@ class OrdersController extends AbstractController
             'icon_path' => 'img/icons/back.png'
         ];
 
+        $btn_delete = [
+            'icon_path' => 'img/icons/delete.png',
+            'form'      => 'orders/_delete_form.html.twig'
+        ];
+
         $form = $this->createForm(OrdersType::class, $order);
         $form->handleRequest($request);
 
@@ -99,7 +120,8 @@ class OrdersController extends AbstractController
         return $this->render('orders/edit.html.twig', [
             'order' => $order,
             'form' => $form->createView(),
-            'page_btn' => $page_btn
+            'page_btn' => $page_btn,
+            'btn_delete'  => $btn_delete
         ]);
     }
 

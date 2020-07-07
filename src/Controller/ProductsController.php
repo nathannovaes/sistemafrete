@@ -73,13 +73,20 @@ class ProductsController extends AbstractController
         ];
 
         $btn_delete = [
-            'icon_path' => 'img/icons/delete.png'
+            'icon_path' => 'img/icons/delete.png',
+            'form'      => 'products/_delete_form.html.twig'
+        ];
+
+        $btn_edit_products = [
+            'page_path' => 'products_edit',
+            'icon_path' => 'img/icons/edit.png',
         ];
 
         return $this->render('products/show.html.twig', [
-            'product'     => $product,
-            'page_btn'    => $page_btn,
-            'btn_delete'  => $btn_delete
+            'product'              => $product,
+            'page_btn'             => $page_btn,
+            'btn_delete'           => $btn_delete,
+            'btn_edit_products'    => $btn_edit_products
         ]);
     }
 
@@ -91,6 +98,11 @@ class ProductsController extends AbstractController
         $page_btn = [
             'page_path' => 'products_index',
             'icon_path' => 'img/icons/back.png'
+        ];
+
+        $btn_delete = [
+            'icon_path' => 'img/icons/delete.png',
+            'form'      => 'products/_delete_form.html.twig'
         ];
 
         $form = $this->createForm(ProductsType::class, $product);
@@ -105,7 +117,8 @@ class ProductsController extends AbstractController
         return $this->render('products/edit.html.twig', [
             'product' => $product,
             'form' => $form->createView(),
-            'page_btn' => $page_btn
+            'page_btn' => $page_btn,
+            'btn_delete'  => $btn_delete
         ]);
     }
 

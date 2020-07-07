@@ -21,8 +21,14 @@ class ApiController extends AbstractController
      */
     public function index()
     {
+        $page_btn = [
+            'page_path' => 'products_index',
+            'icon_path' => 'img/icons/back.png'
+        ];
+
         return $this->render('api/index.html.twig', [
             'controller_name' => 'ApiController',
+            'page_btn' => $page_btn
         ]);
     }
 
@@ -36,7 +42,7 @@ class ApiController extends AbstractController
     public function products_all(ProductsRepository $productsRepository)
     {
         return $this->json([
-            'products' => $productsRepository->findAll(),
+            'data' => $productsRepository->findAll(),
         ]);
     }
 
@@ -46,7 +52,7 @@ class ApiController extends AbstractController
     public function products_show(ProductsRepository $productsRepository, int $id)
     {
         return $this->json([
-            'products' => $productsRepository->findBy(['id' => $id]),
+            'data' => $productsRepository->findBy(['id' => $id]),
         ]);
     }
 
@@ -57,17 +63,14 @@ class ApiController extends AbstractController
     {
         $data = $resquet->request->all();
 
-        $product = new Products();
-        $product->setName($data['name']);
-        $product->setDimensions($data['dimensions']);
-        $product->setWeight($data['weight']);
+        $product = new Products($data['name'],$data['dimensions'],$data['weight']);
 
         $doctrine = $this->getDoctrine()->getManager();
         $doctrine->persist($product);
         $doctrine->flush();
 
         return $this->json([
-            'data' => 'The product '. $data['name'] .'was created with success.'
+            'data' => 'The product '. $data['name'] .' was created with success.'
         ]);
     }
 
@@ -89,7 +92,7 @@ class ApiController extends AbstractController
         $doctrine->flush();
 
         return $this->json([
-            'data' => 'The product '. $data['name'] .'was updated with success.'
+            'data' => 'The product '. $data['name'] .' was updated with success.'
         ]);
     }
 
@@ -107,7 +110,7 @@ class ApiController extends AbstractController
     public function orders_all(OrdersRepository $OrdersRepository)
     {
         return $this->json([
-            'orders' => $OrdersRepository->findAll(),
+            'data' => $OrdersRepository->findAll(),
         ]);
     }
 
@@ -117,7 +120,7 @@ class ApiController extends AbstractController
     public function orders_show(OrdersRepository $OrdersRepository, int $id)
     {
         return $this->json([
-            'orders' => $OrdersRepository->findBy(['id' => $id]),
+            'data' => $OrdersRepository->findBy(['id' => $id]),
         ]);
     }
 
@@ -131,7 +134,10 @@ class ApiController extends AbstractController
         $orders = new Orders();
         $orders->setCepOrigin($data['cep_origin']);
         $orders->setCepDestiny($data['cep_destiny']);
-        $orders->setProducts($data['products']);
+
+        $product_decode = json_decode($data['products']);
+        $order_product= new Products($product_decode->name,$product_decode->dimensions, $product_decode->weight);
+        $orders->setProducts($order_product);
 
         $doctrine = $this->getDoctrine()->getManager();
         $doctrine->persist($orders);

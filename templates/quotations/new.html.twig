@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Quotations{% endblock %}
+
+{% block body %}
+    <h1>Create new Quotations</h1>
+
+    {{ include('quotations/_form.html.twig') }}
+
+    <a href="{{ path('quotations_index') }}">back to list</a>
+{% endblock %}

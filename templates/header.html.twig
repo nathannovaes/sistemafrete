@@ -1,6 +1,16 @@
 <ul class="form-inline my-2 my-lg-0">
     {% if btn_delete is defined %}
-        {{ include('products/_delete_form.html.twig') }}
+        {{ include(btn_delete.form) }}
+    {% endif %}
+    {% if btn_edit_products is defined %}
+        <a type="button" class="btn btn-menu my-2 my-sm-0 mr-2" href="{{ path(btn_edit_products.page_path, {'id': product.id}) }}">
+            <img src="{{ asset(btn_edit_products.icon_path) }}" alt="" width="20" height="20">
+        </a>
+    {% endif %}
+    {% if btn_edit_orders is defined %}
+        <a type="button" class="btn btn-menu my-2 my-sm-0 mr-2" href="{{ path(btn_edit_orders.page_path, {'id': order.id}) }}">
+            <img src="{{ asset(btn_edit_orders.icon_path) }}" alt="" width="20" height="20">
+        </a>
     {% endif %}
     <a type="button" class="btn btn-menu my-2 my-sm-0" href="{{ path(page_btn.page_path) }}">
         <img src="{{ asset(page_btn.icon_path) }}" alt="" width="20" height="20">
