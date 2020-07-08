@@ -18,7 +18,7 @@ class Quotations
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     private $service_code;
 
@@ -33,12 +33,12 @@ class Quotations
         return $this->id;
     }
 
-    public function getServiceCode(): ?int
+    public function getServiceCode(): ?string
     {
         return $this->service_code;
     }
 
-    public function setServiceCode(int $service_code): self
+    public function setServiceCode(string $service_code): self
     {
         $this->service_code = $service_code;
 

@@ -3,11 +3,14 @@
 {% block title %}Edit Quotations{% endblock %}
 
 {% block body %}
-    <h1>Edit Quotations</h1>
-
-    {{ include('quotations/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('quotations_index') }}">back to list</a>
-
-    {{ include('quotations/_delete_form.html.twig') }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="box-title">
+                    <h4>EDITAR COTAÇÃO</h4>
+                </div>
+                {{ include('quotations/_form.html.twig', {'button_label': 'Update'}) }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

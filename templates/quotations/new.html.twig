@@ -3,9 +3,14 @@
 {% block title %}New Quotations{% endblock %}
 
 {% block body %}
-    <h1>Create new Quotations</h1>
-
-    {{ include('quotations/_form.html.twig') }}
-
-    <a href="{{ path('quotations_index') }}">back to list</a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="box-title">
+                    <h4>NOVA COTAÇÃO</h4>
+                </div>
+                {{ include('quotations/_form.html.twig') }}
+            </div>
+        </div>
+    </div>
 {% endblock %}
