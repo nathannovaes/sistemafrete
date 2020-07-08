@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>{% block title %}iFrete - Documentação API{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     {% endblock %}
@@ -120,16 +120,19 @@
         </nav>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+
             <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h1 class="h2">Visão Geral</h1>
+                <h1 class="h2">
+                    {% if method is defined %}
+                        <span class="badge badge-pill'. {{ method.class }} .'">{{ method.action }}</span>
+                    {% endif %}
+                      {{ title }}
+                </h1>
             </div>
             <div class="col-md-10 offset-1">
-                <img src="{{ asset('img/ifrete_api_logo.png') }}" class="img-fluid" alt="Responsive image">
-                <p class="text-justify">A API do iFrete permite a criação, atualização e consulta de todas as entidades que o sistema contém. A lista ao lado mostra as três entidades que o sistema possui e seus respectivos métodos.</p>
-                <p class="text-justify">Esse guia serve de referência sobre como usar a API e como executar as suas operações. A documentação foi organizada por entidade, onde existe um exemplo de como utilizar a requisição, acompanhado de um breve vídeo explicativo. Os recursos representados aqui foram feitos como objetos JSON.</p>
+                {% block body %}
+                {% endblock %}
             </div>
-            {% block body %}
-            {% endblock %}
         </main>
     </div>
 </div>

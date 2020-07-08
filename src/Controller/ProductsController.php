@@ -42,12 +42,16 @@ class ProductsController extends AbstractController
             'page_path' => 'products_index',
             'icon_path' => 'img/icons/back.png'
         ];
-
-        $product = new Products();
+        $name       = ' ';
+        $dimensions = '0';
+        $weight     = '0';
+        $product = new Products($name, $dimensions, $weight);
         $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($product);
             $entityManager->flush();

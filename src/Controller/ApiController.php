@@ -16,22 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ApiController extends AbstractController
 {
-    /**
-     * @Route("/documentation", name="documentation")
-     */
-    public function index()
-    {
-        $page_btn = [
-            'page_path' => 'products_index',
-            'icon_path' => 'img/icons/back.png'
-        ];
-
-        return $this->render('api/index.html.twig', [
-            'controller_name' => 'ApiController',
-            'page_btn' => $page_btn
-        ]);
-    }
-
 
     ################################
     ###   PRODUCTS    BEGIN      ###
