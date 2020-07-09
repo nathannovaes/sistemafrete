@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Orders;
+use App\Entity\Products;
 use App\Entity\Quotations;
 use App\Form\QuotationsType;
 use App\Repository\QuotationsRepository;
@@ -26,14 +27,6 @@ class QuotationsController extends AbstractController
     }
 
 
-    /**
-     * @Route("/correios", name="quotations_correios", methods={"GET"})
-     */
-    public function correios()
-    {
-        $resultado = $this->calculatePortage->calculate('17017470','45420000', '04014');
-        return $this->json($resultado);
-    }
 
     /**
      * @Route("/", name="quotations_index", methods={"GET"})
@@ -63,6 +56,7 @@ class QuotationsController extends AbstractController
             'page_path' => 'quotations_index',
             'icon_path' => 'img/icons/back.png'
         ];
+
 
 
         $quotation = new Quotations();

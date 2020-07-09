@@ -125,7 +125,13 @@ class ApiController extends AbstractController
 
         $product_decode = json_decode($data['products']);
 
-        $order_product= new Products($product_decode->name,$product_decode->weight, $product_decode->length, $product_decode->height, $product_decode->width);
+        $order_product= new Products(
+            $product_decode->name,
+            $product_decode->weight,
+            $product_decode->length,
+            $product_decode->height,
+            $product_decode->width
+        );
         $orders->setProducts($order_product);
 
         $doctrine = $this->getDoctrine()->getManager();
@@ -196,7 +202,31 @@ class ApiController extends AbstractController
     {
         $data = $resquet->request->all();
 
-        $quotations = new Quotations($data['name'],$data['dimensions'],$data['weight']);
+
+        $quotations = new Quotations();
+        $quotations->setOrders($data['service_code']);
+
+
+        $quotations_decode_order   = json_decode($data['orders']);
+        $quotations_decode_product = json_decode($data['products']);
+
+        $quotations_order   = new Orders();
+        $quotations_order->setCepOrigin($quotations_decode_order['cep_origin']);
+        $quotations_order->setCepOrigin($quotations_decode_order['cep_destiny']);
+
+
+
+        $quotations_product = new Products(
+            $quotations_decode_product->name,
+            $quotations_decode_product->weight,
+            $quotations_decode_product->length,
+            $quotations_decode_product->height,
+            $quotations_decode_product->width
+        );
+
+        $quotations_order->setProducts($quotations_product);
+
+        $quotations->setOrders($quotations_order);
 
         $doctrine = $this->getDoctrine()->getManager();
         $doctrine->persist($quotations);
