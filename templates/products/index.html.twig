@@ -17,7 +17,9 @@
                             <tr>
                                 <th>Código</th>
                                 <th>Nome</th>
-                                <th>Dimensões</th>
+                                <th>Comprimento</th>
+                                <th>Altura</th>
+                                <th>Largura</th>
                                 <th>Peso</th>
                                 <th>Opções</th>
                             </tr>
@@ -27,8 +29,10 @@
                             <tr>
                                 <td>{{ product.id }}</td>
                                 <td>{{ product.name }}</td>
-                                <td>{{ product.dimensions }}</td>
-                                <td>{{ product.weight }}</td>
+                                <td>{{ product.length }} cm</td>
+                                <td>{{ product.height }} cm</td>
+                                <td>{{ product.width }} cm</td>
+                                <td>{{ product.weight }} kg</td>
                                 <td>
                                     <a href="{{ path('products_show', {'id': product.id}) }}">show</a>
                                     <a href="{{ path('products_edit', {'id': product.id}) }}">edit</a>

@@ -4,7 +4,11 @@ namespace App\Form;
 
 use App\Entity\Products;
 
+
+
+use Symfony\Component\Form\Extension\Core\Type\FloatType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,8 +28,26 @@ class ProductsType extends AbstractType
                     'class' => 'form-group col-md-12'
                 ]
             ])
-            ->add('dimensions', TextType::class, [
-                'label'     => 'Dimensões',
+            ->add('length', TextType::class, [
+                'label'     => 'Comprimento (cm)',
+                'attr'      => [
+                    'class' => 'form-control'
+                ],
+                'row_attr'  => [
+                    'class' => 'form-group col-md-12'
+                ]
+            ])
+            ->add('height', TextType::class, [
+                'label'     => 'Altura (cm)',
+                'attr'      => [
+                    'class' => 'form-control'
+                ],
+                'row_attr'  => [
+                    'class' => 'form-group col-md-12'
+                ]
+            ])
+            ->add('width', TextType::class, [
+                'label'     => 'Largura (cm)',
                 'attr'      => [
                     'class' => 'form-control'
                 ],
@@ -34,7 +56,7 @@ class ProductsType extends AbstractType
                 ]
             ])
             ->add('weight', TextType::class, [
-                'label'     => 'Peso',
+                'label'     => 'Peso (Kg)',
                 'attr'      => [
                     'class' => 'form-control'
                 ],

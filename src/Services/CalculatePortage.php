@@ -8,6 +8,6 @@ interface CalculatePortage {
     /**
      * @return PortageResponse
      */
-    public function calculate(string $cepOrigin, string $cepDestiny);
+    public function calculate($cepOrigin, $cepDestiny, $peso, $largura, $comprimento, $altura, $codServico);
 
 }

@@ -31,8 +31,8 @@ class QuotationsController extends AbstractController
      */
     public function correios()
     {
-        //$resultado = $this->calculatePortage->calculate();
-        //return $this->json($resultado);
+        $resultado = $this->calculatePortage->calculate('17017470','45420000', '04014');
+        return $this->json($resultado);
     }
 
     /**
@@ -72,7 +72,16 @@ class QuotationsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
-            $result = $this->calculatePortage->calculate($quotation->getOrders()->getCepOrigin(), $quotation->getOrders()->getCepDestiny());
+            $result = $this->calculatePortage->calculate(
+                $quotation->getOrders()->getCepOrigin(),
+                $quotation->getOrders()->getCepDestiny(),
+                $quotation->getOrders()->getProducts()->getWeight(),
+                $quotation->getOrders()->getProducts()->getWidth(),
+                $quotation->getOrders()->getProducts()->getLength(),
+                $quotation->getOrders()->getProducts()->getHeight(),
+                $quotation->getServiceCode()
+            );
+
             $quotation->setPortageValue($result[0]);
             $quotation->setDeadline($result[1]);
             $entityManager->persist($quotation);
@@ -136,10 +145,28 @@ class QuotationsController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+
+
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $result = $this->calculatePortage->calculate(
+                $quotation->getOrders()->getCepOrigin(),
+                $quotation->getOrders()->getCepDestiny(),
+                $quotation->getOrders()->getProducts()->getWeight(),
+                $quotation->getOrders()->getProducts()->getWidth(),
+                $quotation->getOrders()->getProducts()->getLength(),
+                $quotation->getOrders()->getProducts()->getHeight(),
+                $quotation->getServiceCode()
+            );
+            $quotation->setPortageValue($result[0]);
+            $quotation->setDeadline($result[1]);
+            $entityManager->persist($quotation);
+            $entityManager->flush();
+
 
             return $this->redirectToRoute('quotations_index');
         }
+
 
         return $this->render('quotations/edit.html.twig', [
             'quotation' => $quotation,

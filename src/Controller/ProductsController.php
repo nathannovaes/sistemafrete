@@ -42,10 +42,12 @@ class ProductsController extends AbstractController
             'page_path' => 'products_index',
             'icon_path' => 'img/icons/back.png'
         ];
-        $name       = ' ';
-        $dimensions = '0';
-        $weight     = '0';
-        $product = new Products($name, $dimensions, $weight);
+        $name           = ' ';
+        $weight         = '0';
+        $length         = '0';
+        $height         = '0';
+        $width          = '0';
+        $product = new Products($name, $weight, $length, $height, $width);
         $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
 
