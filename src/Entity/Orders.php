@@ -38,24 +38,24 @@ class Orders
         return $this->id;
     }
 
-    public function getCepOrigin(): ?int
+    public function getCepOrigin(): ?string
     {
         return $this->cep_origin;
     }
 
-    public function setCepOrigin(int $cep_origin): self
+    public function setCepOrigin(string $cep_origin): self
     {
         $this->cep_origin = $cep_origin;
 
         return $this;
     }
 
-    public function getCepDestiny(): ?int
+    public function getCepDestiny(): ?string
     {
         return $this->cep_destiny;
     }
 
-    public function setCepDestiny(int $cep_destiny): self
+    public function setCepDestiny(string $cep_destiny): self
     {
         $this->cep_destiny = $cep_destiny;
 

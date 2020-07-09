@@ -4,13 +4,13 @@ namespace App\Services\Portage;
 
 class PortageResponse {
 
-    var $valor;
-    var $prazoEntrega;
+    var $cepOrigin;
+    var $cepDestiny;
 
-    function __construct($valor, $prazoEntrega) 
+    function __construct($cepOrigin, $cepDestiny)
     {
-        $this->valor = $valor;
-        $this->prazoEntrega = $prazoEntrega;
+        $this->cepOrigin = $cepOrigin;
+        $this->cepDestiny = $cepDestiny;
     }
 
 }

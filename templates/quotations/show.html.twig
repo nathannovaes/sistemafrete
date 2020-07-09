@@ -21,6 +21,14 @@
                                 <th>Código do Serviço</th>
                                 <td>{{ quotation.serviceCode }}</td>
                             </tr>
+                            <tr>
+                                <th>Valor do Frete</th>
+                                <td>R$ {{ quotation.portageValue }}</td>
+                            </tr>
+                            <tr>
+                                <th>Prazo de Entrega</th>
+                                <td>{{ quotation.deadline }} dias úteis</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

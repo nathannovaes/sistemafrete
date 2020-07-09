@@ -31,8 +31,8 @@ class QuotationsController extends AbstractController
      */
     public function correios()
     {
-        $resultado = $this->calculatePortage->calculate();
-        return $this->json($resultado);
+        //$resultado = $this->calculatePortage->calculate();
+        //return $this->json($resultado);
     }
 
     /**
@@ -46,9 +46,10 @@ class QuotationsController extends AbstractController
             'icon_path' => 'img/icons/add.png'
         ];
 
+
         return $this->render('quotations/index.html.twig', [
-            'quotations' => $quotationsRepository->findAll(),
-            'page_btn' => $page_btn
+            'quotations'     => $quotationsRepository->findAll(),
+            'page_btn'       => $page_btn
         ]);
     }
 
@@ -70,6 +71,10 @@ class QuotationsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
+            $result = $this->calculatePortage->calculate($quotation->getOrders()->getCepOrigin(), $quotation->getOrders()->getCepDestiny());
+            $quotation->setPortageValue($result[0]);
+            $quotation->setDeadline($result[1]);
             $entityManager->persist($quotation);
             $entityManager->flush();
 

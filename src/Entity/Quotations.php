@@ -28,6 +28,16 @@ class Quotations
      */
     private $orders;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $portage_value;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $deadline;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +63,30 @@ class Quotations
     public function setOrders(Orders $orders): self
     {
         $this->orders = $orders;
+
+        return $this;
+    }
+
+    public function getPortageValue(): ?string
+    {
+        return $this->portage_value;
+    }
+
+    public function setPortageValue(?string $portage_value): self
+    {
+        $this->portage_value = $portage_value;
+
+        return $this;
+    }
+
+    public function getDeadline(): ?string
+    {
+        return $this->deadline;
+    }
+
+    public function setDeadline(?string $deadline): self
+    {
+        $this->deadline = $deadline;
 
         return $this;
     }

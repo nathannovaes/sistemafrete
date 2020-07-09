@@ -16,6 +16,8 @@
                                 <tr>
                                     <th>Código</th>
                                     <th>Código do Serviço</th>
+                                    <th>Valor Frete</th>
+                                    <th>Prazo de Entrega</th>
                                     <th>Opções</th>
                                 </tr>
                             </thead>
@@ -24,6 +26,8 @@
                                 <tr>
                                     <td>{{ quotation.id }}</td>
                                     <td>{{ quotation.serviceCode }}</td>
+                                    <td>R$ {{ quotation.portageValue }} </td>
+                                    <td>{{ quotation.deadline }} dias úteis</td>
                                     <td>
                                         <a href="{{ path('quotations_show', {'id': quotation.id}) }}">show</a>
                                         <a href="{{ path('quotations_edit', {'id': quotation.id}) }}">edit</a>
