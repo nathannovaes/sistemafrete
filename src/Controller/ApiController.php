@@ -12,6 +12,7 @@ use App\Repository\QuotationsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Services\CorreiosCalculatePortage;
 
 /**
  * @Route("/api", name="api")
@@ -156,7 +157,13 @@ class ApiController extends AbstractController
         $orders->setCepDestiny($data['cep_destiny']);
 
         $product_decode = json_decode($data['products']);
-        $order_product= new Products($product_decode->name,$product_decode->weight, $product_decode->length, $product_decode->height, $product_decode->width);
+        $order_product= new Products(
+            $product_decode->name,
+            $product_decode->weight,
+            $product_decode->length,
+            $product_decode->height,
+            $product_decode->width
+        );
         $orders->setProducts($order_product);
 
         $doctrine = $this->getDoctrine()->getManager();
@@ -195,45 +202,69 @@ class ApiController extends AbstractController
         ]);
     }
 
+
+    private $calculatePortage;
+
+    function __construct(CorreiosCalculatePortage $calculatePortage)
+    {
+        $this->calculatePortage = $calculatePortage;
+    }
+
+
     /**
      * @Route("/quotations/create", name="quotations_api_create", methods={"POST"})
      */
-    public function quotations_create(Request $resquet)
+    public function quotations_create(Request $request)
     {
-        $data = $resquet->request->all();
+        $data = $request->request->all();
 
 
-        $quotations = new Quotations();
-        $quotations->setOrders($data['service_code']);
+        ## STEP 1 Product
+        $product_decode = json_decode($data['products']);
 
-
-        $quotations_decode_order   = json_decode($data['orders']);
-        $quotations_decode_product = json_decode($data['products']);
-
-        $quotations_order   = new Orders();
-        $quotations_order->setCepOrigin($quotations_decode_order['cep_origin']);
-        $quotations_order->setCepOrigin($quotations_decode_order['cep_destiny']);
-
-
-
-        $quotations_product = new Products(
-            $quotations_decode_product->name,
-            $quotations_decode_product->weight,
-            $quotations_decode_product->length,
-            $quotations_decode_product->height,
-            $quotations_decode_product->width
+        $order_product= new Products(
+            $product_decode->name,
+            $product_decode->weight,
+            $product_decode->length,
+            $product_decode->height,
+            $product_decode->width
         );
 
-        $quotations_order->setProducts($quotations_product);
 
-        $quotations->setOrders($quotations_order);
+        ## STEP 2 Order
+        $order_decode = json_decode($data['orders']);
+
+        $quotation_order= new Orders();
+        $quotation_order->setCepOrigin($order_decode->cepOrigin);
+        $quotation_order->setCepDestiny($order_decode->cepDestiny);
+        $quotation_order->setProducts($order_product);
+
+
+        ## STEP 3 Quotation
+        $quotation = new Quotations();
+        $quotation->setServiceCode($data['service_code']);
+        $quotation->setOrders($quotation_order);
+
+        $result = $this->calculatePortage->calculate(
+            $quotation->getOrders()->getCepOrigin(),
+            $quotation->getOrders()->getCepDestiny(),
+            $quotation->getOrders()->getProducts()->getWeight(),
+            $quotation->getOrders()->getProducts()->getWidth(),
+            $quotation->getOrders()->getProducts()->getLength(),
+            $quotation->getOrders()->getProducts()->getHeight(),
+            $quotation->getServiceCode()
+        );
+
+        $quotation->setPortageValue($result[0]);
+        $quotation->setDeadline($result[1]);
+
 
         $doctrine = $this->getDoctrine()->getManager();
-        $doctrine->persist($quotations);
+        $doctrine->persist($quotation);
         $doctrine->flush();
 
         return $this->json([
-            'data' => 'The quotation '. $data['name'] .' was created with success.'
+            'data' => 'The quotation was created with success.'
         ]);
     }
 
@@ -244,18 +275,53 @@ class ApiController extends AbstractController
     {
         $data = $resquet->request->all();
 
-        $product = $this->getDoctrine()->getRepository(Products::class)->find($id);
 
-        $product->setName($data['name']);
-        $product->setDimensions($data['dimensions']);
-        $product->setWeight($data['weight']);
+        ## STEP 1 Product
+        $product_decode = json_decode($data['products']);
+
+        $order_product= new Products(
+            $product_decode->name,
+            $product_decode->weight,
+            $product_decode->length,
+            $product_decode->height,
+            $product_decode->width
+        );
+
+
+        ## STEP 2 Order
+        $order_decode = json_decode($data['orders']);
+
+        $quotation_order= new Orders();
+        $quotation_order->setCepOrigin($order_decode->cepOrigin);
+        $quotation_order->setCepDestiny($order_decode->cepDestiny);
+        $quotation_order->setProducts($order_product);
+
+
+        ## STEP 3 Quotation
+        $quotation = $this->getDoctrine()->getRepository(Quotations::class)->find($id);
+        $quotation->setServiceCode($data['service_code']);
+        $quotation->setOrders($quotation_order);
+
+        $result = $this->calculatePortage->calculate(
+            $quotation->getOrders()->getCepOrigin(),
+            $quotation->getOrders()->getCepDestiny(),
+            $quotation->getOrders()->getProducts()->getWeight(),
+            $quotation->getOrders()->getProducts()->getWidth(),
+            $quotation->getOrders()->getProducts()->getLength(),
+            $quotation->getOrders()->getProducts()->getHeight(),
+            $quotation->getServiceCode()
+        );
+
+        $quotation->setPortageValue($result[0]);
+        $quotation->setDeadline($result[1]);
+
 
         $doctrine = $this->getDoctrine()->getManager();
-        $doctrine->persist($product);
+        $doctrine->persist($quotation);
         $doctrine->flush();
 
         return $this->json([
-            'data' => 'The quotation '. $data['name'] .' was updated with success.'
+            'data' => 'The quotation was updated with success.'
         ]);
     }
 
