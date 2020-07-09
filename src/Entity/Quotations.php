@@ -38,6 +38,17 @@ class Quotations
      */
     private $deadline;
 
+    /**
+     * Quotations constructor.
+     * @param $service_code
+     * @param $orders
+     */
+    public function __construct($service_code, $orders)
+    {
+        $this->service_code = $service_code;
+        $this->orders = $orders;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

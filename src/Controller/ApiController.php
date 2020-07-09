@@ -5,8 +5,10 @@ namespace App\Controller;
 
 use App\Entity\Orders;
 use App\Entity\Products;
+use App\Entity\Quotations;
 use App\Repository\OrdersRepository;
 use App\Repository\ProductsRepository;
+use App\Repository\QuotationsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,7 +49,7 @@ class ApiController extends AbstractController
     {
         $data = $resquet->request->all();
 
-        $product = new Products($data['name'],$data['dimensions'],$data['weight']);
+        $product = new Products($data['name'],$data['weight'],$data['length'],$data['height'],$data['width']);
 
         $doctrine = $this->getDoctrine()->getManager();
         $doctrine->persist($product);
@@ -68,8 +70,10 @@ class ApiController extends AbstractController
         $product = $this->getDoctrine()->getRepository(Products::class)->find($id);
 
         $product->setName($data['name']);
-        $product->setDimensions($data['dimensions']);
         $product->setWeight($data['weight']);
+        $product->setWeight($data['length']);
+        $product->setWeight($data['height']);
+        $product->setWeight($data['width']);
 
         $doctrine = $this->getDoctrine()->getManager();
         $doctrine->persist($product);
@@ -120,7 +124,8 @@ class ApiController extends AbstractController
         $orders->setCepDestiny($data['cep_destiny']);
 
         $product_decode = json_decode($data['products']);
-        $order_product= new Products($product_decode->name,$product_decode->dimensions, $product_decode->weight);
+
+        $order_product= new Products($product_decode->name,$product_decode->weight, $product_decode->length, $product_decode->height, $product_decode->width);
         $orders->setProducts($order_product);
 
         $doctrine = $this->getDoctrine()->getManager();
@@ -143,7 +148,10 @@ class ApiController extends AbstractController
 
         $orders->setCepOrigin($data['cep_origin']);
         $orders->setCepDestiny($data['cep_destiny']);
-        $orders->setProducts($data['products']);
+
+        $product_decode = json_decode($data['products']);
+        $order_product= new Products($product_decode->name,$product_decode->weight, $product_decode->length, $product_decode->height, $product_decode->width);
+        $orders->setProducts($order_product);
 
         $doctrine = $this->getDoctrine()->getManager();
         $doctrine->persist($orders);
@@ -158,5 +166,71 @@ class ApiController extends AbstractController
     ###   ORDERS    END          ###
     ################################
 
+    ################################
+    ###   QUOTATIONS    BEGIN    ###
+    ################################
+    /**
+     * @Route("/quotations", name="quotations_api_all", methods={"GET"})
+     */
+    public function quotations_all(QuotationsRepository $quotationsRepository)
+    {
+        return $this->json([
+            'data' => $quotationsRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/quotations/{id}", name="quotations_api_id", methods={"GET"})
+     */
+    public function quotations_show(QuotationsRepository $quotationsRepository, int $id)
+    {
+        return $this->json([
+            'data' => $quotationsRepository->findBy(['id' => $id]),
+        ]);
+    }
+
+    /**
+     * @Route("/quotations/create", name="quotations_api_create", methods={"POST"})
+     */
+    public function quotations_create(Request $resquet)
+    {
+        $data = $resquet->request->all();
+
+        $quotations = new Quotations($data['name'],$data['dimensions'],$data['weight']);
+
+        $doctrine = $this->getDoctrine()->getManager();
+        $doctrine->persist($quotations);
+        $doctrine->flush();
+
+        return $this->json([
+            'data' => 'The quotation '. $data['name'] .' was created with success.'
+        ]);
+    }
+
+    /**
+     * @Route("/quotations/{id}", name="quotations_api_update", methods={"PUT", "PATCH"})
+     */
+    public function quotations_update(int $id, Request $resquet)
+    {
+        $data = $resquet->request->all();
+
+        $product = $this->getDoctrine()->getRepository(Products::class)->find($id);
+
+        $product->setName($data['name']);
+        $product->setDimensions($data['dimensions']);
+        $product->setWeight($data['weight']);
+
+        $doctrine = $this->getDoctrine()->getManager();
+        $doctrine->persist($product);
+        $doctrine->flush();
+
+        return $this->json([
+            'data' => 'The quotation '. $data['name'] .' was updated with success.'
+        ]);
+    }
+
+    ################################
+    ###   QUOTATIONS    END      ###
+    ################################
 }
 

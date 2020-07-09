@@ -27,9 +27,7 @@ class Products
      * @ORM\Column(type="float")
      * @Assert\Range(
      *      min = 1,
-     *      max = 30,
-     *      minMessage = "O peso precisa ter no mínimo 1 kg.",
-     *      maxMessage = "O peso só pode ser no máximo 30 kg.",
+     *      max = 30
      * )
      */
     private $weight;
@@ -38,9 +36,7 @@ class Products
      * @ORM\Column(type="float")
      * @Assert\Range(
      *      min = 16,
-     *      max = 105,
-     *      minMessage = "O comprimento precisa ter no mínimo 16 cm.",
-     *      maxMessage = "O comprimento só pode ser no máximo 105 cm.",
+     *      max = 105
      * )
      */
     protected $length;
@@ -49,9 +45,7 @@ class Products
      * @ORM\Column(type="float")
      * @Assert\Range(
      *      min = 2,
-     *      max = 105,
-     *      minMessage = "A altura precisa ter no mínimo 2 cm.",
-     *      maxMessage = "A altura só pode ser no máximo 105 cm.",
+     *      max = 105
      * )
      */
     private $height;
@@ -60,9 +54,7 @@ class Products
      * @ORM\Column(type="float")
      * @Assert\Range(
      *      min = 11,
-     *      max = 105,
-     *      minMessage = "A largura precisa ter no mínimo 11 cm.",
-     *      maxMessage = "A largura só pode ser no máximo 105 cm.",
+     *      max = 105
      * )
      */
     private $width;
