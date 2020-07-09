@@ -12,6 +12,11 @@
             <img src="{{ asset(btn_edit_orders.icon_path) }}" alt="" width="20" height="20">
         </a>
     {% endif %}
+    {% if btn_edit_quotations is defined %}
+        <a type="button" class="btn btn-menu my-2 my-sm-0 mr-2" href="{{ path(btn_edit_quotations.page_path, {'id': quotation.id}) }}">
+            <img src="{{ asset(btn_edit_quotations.icon_path) }}" alt="" width="20" height="20">
+        </a>
+    {% endif %}
     <a type="button" class="btn btn-menu my-2 my-sm-0" href="{{ path(page_btn.page_path) }}">
         <img src="{{ asset(page_btn.icon_path) }}" alt="" width="20" height="20">
     </a>

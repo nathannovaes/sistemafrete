@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Orders;
 use App\Entity\Quotations;
 use App\Form\QuotationsType;
 use App\Repository\QuotationsRepository;
+use App\Services\CorreiosCalculatePortage;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +17,24 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class QuotationsController extends AbstractController
 {
+
+    private $calculatePortage;
+
+    function __construct(CorreiosCalculatePortage $calculatePortage)
+    {
+        $this->calculatePortage = $calculatePortage;
+    }
+
+
+    /**
+     * @Route("/correios", name="quotations_correios", methods={"GET"})
+     */
+    public function correios()
+    {
+        $resultado = $this->calculatePortage->calculate();
+        return $this->json($resultado);
+    }
+
     /**
      * @Route("/", name="quotations_index", methods={"GET"})
      */
@@ -78,7 +98,7 @@ class QuotationsController extends AbstractController
             'form'      => 'quotations/_delete_form.html.twig'
         ];
 
-        $btn_edit_products = [
+        $btn_edit_quotations = [
             'page_path' => 'quotations_edit',
             'icon_path' => 'img/icons/edit.png',
         ];
@@ -87,7 +107,7 @@ class QuotationsController extends AbstractController
             'quotation' => $quotation,
             'page_btn'  => $page_btn,
             'btn_delete'           => $btn_delete,
-            'btn_edit_products'    => $btn_edit_products
+            'btn_edit_quotations'    => $btn_edit_quotations
         ]);
     }
 
