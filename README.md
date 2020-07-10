@@ -46,7 +46,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
         cd ..
         rm -rf sistemafrete
     ```
-  - Rode o composer dentro da pasta src
+- Rode o composer dentro da pasta src
   ```
     composer install
   ```
@@ -60,6 +60,15 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     ```
         sudo docker-compose up --build -d
     ``` 
+ - Acesse a pasta src novamente
+ ```
+    cd ..
+    cd src
+ ```
+ - Execute o comando do doctrine para criar o banco
+ ```
+    php bin/console doctrine:database:create
+ ```
 
 - Abra o seu navegador e escreva: localhost:80
 
