@@ -93,16 +93,26 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     ```
         sudo docker-compose up --build -d
     ``` 
- - Acesse a pasta src novamente
+- Acesse a pasta src novamente
      ```
         cd ..
         cd src
      ```
- - Execute o comando do doctrine para criar o banco
+- Execute o comando do doctrine para criar as tabelas no banco
      ```
         php bin/console doctrine:database:create
      ```
-
+    Obs: Se der um erro de conexão MySql. Derrube o docker com o comando abaixo e suba novamente. Depois disse execute o domando do doctrine para criar as tabelas.
+    - Derrubando o docker
+    ```
+        cd ..
+        cd docker
+        docker-compose down
+    ```
+    - Subindo o docker
+    ```
+        sudo docker-compose up --build -d
+    ```
 - Abra o seu navegador e escreva: localhost:80
 
 Obs:O MyPhpAdmin está em localhost:8090
