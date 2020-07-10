@@ -23,10 +23,21 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
         wget https://get.symfony.com/cli/installer -O - | bash 
     ```
 - Composer 1.10.1
+    ```
+        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+        php -r "if (hash_file('sha384', 'composer-setup.php') === 'e5325b19b381bfd88ce90a5ddb7823406b2a38cff6bb704b0acc289a09c8128d4a8ce2bbafcd1fcbdc38666422fe2806') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+        php composer-setup.php
+        php -r "unlink('composer-setup.php');" 
+    ```
+
 - PHP 7.4-XML
     ```
       sudo apt-get install -y php7.4-xml  
     ```
+ - MySQL
+     ```
+      sudo apt-get install php-mysql
+     ```
     
 ## Começo rápido
 - [Faça um clone do docker do projeto] (https://github.com/nvitiver/sistemafrete-docker)
@@ -60,17 +71,20 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     ```
         sudo docker-compose up --build -d
     ``` 
- - Acesse a pasta src novamente
+- Acesse a pasta src novamente
      ```
         cd ..
         cd src
      ```
- - Execute o comando do doctrine para criar o banco
+- Crie as tabelas no banco com a migration
      ```
-        php bin/console doctrine:database:create
+        php bin/console doctrine:migrations:migrate
      ```
+- Confirme a migração 
 
 - Abra o seu navegador e escreva: localhost:80
+
+Pronto! ;)
 
 Obs:O MyPhpAdmin está em localhost:8090
 
