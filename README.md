@@ -11,6 +11,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 
 - [Instalando o projeto](#instalando-o-projeto)
 - [Explicando o projeto](#explicando-o-projeto)
+- [Veja o projeto funcionando](#veja-o-projeto-funcionando)
 - [O que está incluído?](#o-que-está-incluído)
 - [Documentação da API](#documentação-da-API)
 - [Autor](#autor)
@@ -63,6 +64,8 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
         cd sistemafrete-docker
         cd src
     ```
+    ![Passo 2](public/img/gifs/2.gif)
+    
 - [Faça um clone do iFrete]
     ```
         git clone https://github.com/nvitiver/sistemafrete
@@ -71,6 +74,8 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
         cd ..
         rm -rf sistemafrete
     ```
+    ![Passo 3](public/img/gifs/3.gif)
+    
 - Saia da pasta src e acesse a pasta docker
     ```
         cd ..
@@ -80,6 +85,8 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
     ```
         sudo docker-compose up --build -d
     ``` 
+    ![Passo 4](public/img/gifs/4.gif)
+    
 - Acesse a pasta src novamente
      ```
         cd ..
@@ -101,6 +108,8 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
   ```
     :wq!
   ```
+  ![Passo 5](public/img/gifs/5.gif)
+  
   
 - Rode o composer dentro da pasta src
   ```
@@ -121,6 +130,10 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
     ```
         sudo docker-compose up --build -d
     ```     
+    
+  ![Passo 6](public/img/gifs/6.gif)
+  
+  
 - Acesse a pasta src novamente
      ```
         cd ..
@@ -130,12 +143,16 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
      ```
         php bin/console doctrine:migrations:migrate
      ```
-
+ ![Passo 7](public/img/gifs/7.gif)
+ 
+ 
 - Abra o seu navegador e escreva: localhost:80
 
 Obs:O MyPhpAdmin está em localhost:8090
 
+## Veja o projeto funcionando
 
+![Passo 8](public/img/gifs/8.gif)
 
 ## O que está incluído?
 
