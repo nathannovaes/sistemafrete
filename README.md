@@ -51,11 +51,13 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
     
 ## Instalando o projeto
 
-![Passo 1](public/img/gifs/1.gif)
+
 - [Faça um clone do docker do projeto] (https://github.com/nvitiver/sistemafrete-docker)
     ```
         git clone https://github.com/nvitiver/sistemafrete-docker
     ```
+    ![Passo 1](public/img/gifs/1.gif)
+    
 - Acesse a pasta sistemafrete-docker.
     ```
         cd sistemafrete-docker
