@@ -17,13 +17,19 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 
 
 ## Começo rápido
-- [Baixe o docker do projeto] (https://github.com/)
+- [Faça um clone do docker do projeto] (https://github.com/nvitiver/sistemafrete-docker)
 - Coloque o projeto dentro do diretório sistemafrete-docker.
+- A pasta docker e src precisam estar no mesmo diretório. Exemplo:
+    ```
+    user@pc:~/Downloads$ cd sistemafrete-docker 
+    user@pc:~/Downloads/sistemafrete-docker$ ls
+    docker  src
+    ```
 - Acesse a pasta docker
 - Rode o comando 
-```
-    sudo docker-compose up --build -d
-``` 
+    ```
+        sudo docker-compose up --build -d
+    ``` 
 - Acesse o seu localhost
 - MyPhpAdmin está em localhost:8090
 
