@@ -23,7 +23,7 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
 <a href="https://www.youtube.com/playlist?list=PLnzDO8mVGw5ezafW3cmdE7PreBLhBaOr7" target="_blank">Ver lista de vídeos</a>
 
 
-## Pré-requisito
+## Pré-requisitos
 - PHP 7.4^
 - A porta 80 precisa estar livre.
 - Symfony 5 precisa estar instalado. 
