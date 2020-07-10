@@ -17,8 +17,16 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 
 
 ## Começo rápido
+- [Baixe o docker do projeto] (https://github.com/)
+- Coloque o projeto dentro do diretório sistemafrete.
+- Acesse a pasta docker
+- Rode o comando 
+```
+    sudo docker-compose up --build -d
+``` 
+- Acesse o seu localhost
+- MyPhpAdmin está em localhost:8090
 
-Several quick start options are available:
 
 - [Download the latest release](https://github.com/twbs/bootstrap/archive/v5.0.0.zip)
 - Clone the repo: `git clone https://github.com/twbs/bootstrap.git`
@@ -27,7 +35,6 @@ Several quick start options are available:
 - Install with [Composer](https://getcomposer.org/): `composer require twbs/bootstrap:5.0.0`
 - Install with [NuGet](https://www.nuget.org/): CSS: `Install-Package bootstrap` Sass: `Install-Package bootstrap.sass`
 
-Read the [Getting started page](https://v5.getbootstrap.com/docs/5.0/getting-started/introduction/) for information on the framework contents, templates and examples, and more.
 
 
 
@@ -81,16 +88,7 @@ Esse guia serve de referência sobre como usar a API e como executar as suas ope
 Para facilitar o entendimento, funcionamento e documentação da API, foi utilizado o programa Postman. Com ele fica muito mais fácil para o desenvolvedor executar suas requisições e verificar as respostas da API.
 
 
-[Acessar Documentação](https://documenter.getpostman.com/view/11939856/T17KenFH?version=latest).
-
-### Rodando o projeto localmente
-
-1. Run `npm install` to install the Node.js dependencies, including Hugo (the site builder).
-2. Run `npm run test` (or a specific npm script) to rebuild distributed CSS and JavaScript files, as well as our docs assets.
-3. From the root `/bootstrap` directory, run `npm run docs-serve` in the command line.
-4. Open `http://localhost:9001/` in your browser, and voilà.
-
-Learn more about using Hugo by reading its [documentation](https://gohugo.io/documentation/).
+[Acessar Documentação](https://documenter.getpostman.com/view/11939856/T17KenFH?version=latest)
 
 
 ## Autor
@@ -101,6 +99,6 @@ Learn more about using Hugo by reading its [documentation](https://gohugo.io/doc
 
 
 
-## Copyright and license
+## Copyright
 
 Docs released under [Creative Commons](https://creativecommons.org/licenses/by/3.0/).
