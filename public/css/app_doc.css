@@ -102,7 +102,24 @@ body {
     box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
 }
 
-.bg-blue {
+
+
+a, a:hover {
+    color: #30a0b8;
+}
+
+
+.bg-blue, .btn-primary{
     background-color: #30a0b8;
     border-color: #30a0b8;
+}
+
+.btn-primary:hover {
+    background-color: #1e6e80;
+    border-color: #1e6e80;
+}
+
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #30a0b8;
 }

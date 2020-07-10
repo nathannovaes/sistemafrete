@@ -3,10 +3,13 @@
 {% block title %}iFrete - Documentação API{% endblock %}
 
 {% block body %}
+
     {% if image is defined %}
         <img src="{{ asset(image) }}" class="img-fluid" alt="Responsive image">
     {% endif %}
     {% for content in contents %}
         <p class="text-justify">{{ content }}</p>
     {% endfor %}
+
+
 {% endblock %}
