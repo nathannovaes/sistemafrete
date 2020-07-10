@@ -11,7 +11,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 
 - [Começo rápido](#começo-rápido)
 - [O que está incluído?](#o-que-está-incluído)
-- [Documentação da API](#documentaçâo-da-API)
+- [Documentação da API](#documentação-da-API)
 - [Autor](#autor)
 
 
