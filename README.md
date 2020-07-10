@@ -10,6 +10,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 ## Sumário
 
 - [Começo rápido](#começo-rápido)
+- [Explicando o projeto](#explicando-o-projeto)
 - [O que está incluído?](#o-que-está-incluído)
 - [Documentação da API](#documentação-da-API)
 - [Autor](#autor)
@@ -31,6 +32,16 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     ``` 
 - Acesse o seu localhost
 - MyPhpAdmin está em localhost:8090
+
+## Explicando o projeto
+
+Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada etapa. Com esses vídeos um programador iniciante consegue ter os conhecimentos básicos sobre Doctrine, Twig, Comandos do Terminal, MVC, API e etc.  
+
+
+<a target="_blank" href="https://www.youtube.com/playlist?list=PLnzDO8mVGw5ezafW3cmdE7PreBLhBaOr7">Ver lista de vídeos</a>
+
+
+
 
 ## O que está incluído?
 
