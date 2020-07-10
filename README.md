@@ -38,7 +38,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada etapa. Com esses vídeos um programador iniciante consegue ter os conhecimentos básicos sobre Doctrine, Twig, Comandos do Terminal, MVC, API e etc.  
 
 
-<a target="_blank" href="https://www.youtube.com/playlist?list=PLnzDO8mVGw5ezafW3cmdE7PreBLhBaOr7">Ver lista de vídeos</a>
+<a href="https://www.youtube.com/playlist?list=PLnzDO8mVGw5ezafW3cmdE7PreBLhBaOr7" target="_blank">Ver lista de vídeos</a>
 
 
 
