@@ -25,6 +25,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     user@pc:~/Downloads/sistemafrete-docker$ ls
     docker  src
     ```
+  Obs: Não confunda a pasta src do Symfony com a pasta src do docker. Esse projeto todo deve ser clonado dentro da pasta src ao lado da pasta docker.    
 - Acesse a pasta docker
 - Rode o comando 
     ```
@@ -48,7 +49,7 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
 Fazendo o download você irá encontrar os seguintes diretórios e arquivos. Agrupados todos por lógica padrão do framework Symfony. Você encontrará algo semelhante a isso: 
 
 ```
-.
+src
 ├── bin
 ├── config
 │   ├── packages
