@@ -28,7 +28,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     ```
 - [Faça um clone do iFrete]
     ```
-        git clone https://github.com/nvitiver/sistemafrete-docker
+        git clone https://github.com/nvitiver/sistemafrete
     ```
   Obs: Não confunda a pasta src do Symfony com a pasta src do docker. Esse projeto todo deve ser clonado dentro da pasta src ao lado da pasta docker.    
 - Saia da pasta src e acesse a pasta docker
