@@ -22,7 +22,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     ```
      wget https://get.symfony.com/cli/installer -O - | bash 
     ```
-    
+- Composer 1.10.1
     
 ## Começo rápido
 - [Faça um clone do docker do projeto] (https://github.com/nvitiver/sistemafrete-docker)
@@ -42,9 +42,9 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
         cd ..
         rm -rf sistemafrete
     ```
-  - Rode os comandos de permissão dentro da pasta do projeto
+  - Rode o composer dentro da pasta src
   ```
-  
+    composer install
   ```
   Obs: Não confunda a pasta src do Symfony com a pasta src do docker. Esse projeto todo deve ser clonado dentro da pasta src ao lado da pasta docker.    
 - Saia da pasta src e acesse a pasta docker
