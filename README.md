@@ -9,7 +9,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 
 ## Sumário
 
-- [Começo rápido](#começo-rápido)
+- [Instalando o projeto](#instalando-o-projeto)
 - [Explicando o projeto](#explicando-o-projeto)
 - [O que está incluído?](#o-que-está-incluído)
 - [Documentação da API](#documentação-da-API)
@@ -49,7 +49,9 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
       sudo apt-get install php-mysql
      ```
     
-## Começo rápido
+## Instalando o projeto
+
+![Passo 1](public/img/gifs/1.gif)
 - [Faça um clone do docker do projeto] (https://github.com/nvitiver/sistemafrete-docker)
     ```
         git clone https://github.com/nvitiver/sistemafrete-docker
