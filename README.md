@@ -15,7 +15,9 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 - [Documentação da API](#documentação-da-API)
 - [Autor](#autor)
 
-
+## Pré-requisito
+    PHP 7.4^
+    
 ## Começo rápido
 - [Faça um clone do docker do projeto] (https://github.com/nvitiver/sistemafrete-docker)
     ```
