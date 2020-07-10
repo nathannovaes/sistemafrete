@@ -107,13 +107,11 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
         cd ..
         cd docker
     ```      
-- Derrubando o docker
+- Derrube o servidor docker
     ```
-        cd ..
-        cd docker
         docker-compose down
     ```
-- Subindo o docker
+- Suba o servidor docker novamente 
     ```
         sudo docker-compose up --build -d
     ```     
