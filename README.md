@@ -61,14 +61,14 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
         sudo docker-compose up --build -d
     ``` 
  - Acesse a pasta src novamente
- ```
-    cd ..
-    cd src
- ```
+     ```
+        cd ..
+        cd src
+     ```
  - Execute o comando do doctrine para criar o banco
- ```
-    php bin/console doctrine:database:create
- ```
+     ```
+        php bin/console doctrine:database:create
+     ```
 
 - Abra o seu navegador e escreva: localhost:80
 
