@@ -15,6 +15,14 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 - [Documentação da API](#documentação-da-API)
 - [Autor](#autor)
 
+## Explicando o projeto
+
+Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada etapa. Com esses vídeos um programador iniciante consegue ter os conhecimentos básicos sobre Doctrine, Twig, Comandos do Terminal, MVC, API e etc. E um programador mais experiente pode ter noção de como o projeto foi desenvolvido.  
+
+
+<a href="https://www.youtube.com/playlist?list=PLnzDO8mVGw5ezafW3cmdE7PreBLhBaOr7" target="_blank">Ver lista de vídeos</a>
+
+
 ## Pré-requisito
 - PHP 7.4^
 - A porta 80 precisa estar livre.
@@ -57,8 +65,21 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
         cd ..
         rm -rf sistemafrete
     ```
-
-- Crie o arquivo .env dentro da pasta src/ com o conteúdo que está no arquivo .env desse projeto. (https://github.com/nvitiver/sistemafrete/blob/master/.env)
+- Saia da pasta src e acesse a pasta docker
+    ```
+        cd ..
+        cd docker
+    ``` 
+- Rode o comando 
+    ```
+        sudo docker-compose up --build -d
+    ``` 
+- Acesse a pasta src novamente
+     ```
+        cd ..
+        cd src
+     ```    
+- Crie o arquivo .env dentro da pasta src/.
   - Para criar o arquivo
   ```
     touch .env
@@ -74,59 +95,41 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
   ```
     :wq!
   ```
+  
+- Rode o composer dentro da pasta src
+  ```
+    sudo composer install
+  ```
+  Obs: Não confunda a pasta src do Symfony com a pasta src do docker. Esse projeto todo deve ser clonado dentro da pasta src ao lado da pasta docker.    
+
 - Saia da pasta src e acesse a pasta docker
     ```
         cd ..
         cd docker
-    ``` 
-- Rode o comando 
-    ```
-        sudo docker-compose up --build -d
-    ``` 
-- Acesse a pasta src novamente
-     ```
-        cd ..
-        cd src
-     ```
-- Rode o composer dentro da pasta src
-  ```
-    composer install
-  ```
-  Obs: Não confunda a pasta src do Symfony com a pasta src do docker. Esse projeto todo deve ser clonado dentro da pasta src ao lado da pasta docker.    
-
-     
-- Execute o comando do doctrine para criar as tabelas no banco
-     ```
-        php bin/console doctrine:migrations:migrate
-     ```
-    Obs: Se der um erro de conexão MySql. Derrube o docker com o comando abaixo e suba novamente. Depois disso execute o comando do doctrine para criar as tabelas no banco.
-    - Derrubando o docker
+    ```      
+- Derrubando o docker
     ```
         cd ..
         cd docker
         docker-compose down
     ```
-    - Subindo o docker
+- Subindo o docker
     ```
         sudo docker-compose up --build -d
-    ```
-    - Criando as tabelas no banco
-    ```
-      cd ..
-      cd src
-      php bin/console doctrine:database:create
-    ```
+    ```     
+- Acesse a pasta src novamente
+     ```
+        cd ..
+        cd src
+     ```         
+- Execute o comando do doctrine para criar as tabelas no banco
+     ```
+        php bin/console doctrine:migrations:migrate
+     ```
+
 - Abra o seu navegador e escreva: localhost:80
 
 Obs:O MyPhpAdmin está em localhost:8090
-
-## Explicando o projeto
-
-Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada etapa. Com esses vídeos um programador iniciante consegue ter os conhecimentos básicos sobre Doctrine, Twig, Comandos do Terminal, MVC, API e etc. E um programador mais experiente pode ter noção de como o projeto foi desenvolvido.  
-
-
-<a href="https://www.youtube.com/playlist?list=PLnzDO8mVGw5ezafW3cmdE7PreBLhBaOr7" target="_blank">Ver lista de vídeos</a>
-
 
 
 
