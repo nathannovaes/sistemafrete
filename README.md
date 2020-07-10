@@ -102,7 +102,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
      ```
         php bin/console doctrine:database:create
      ```
-    Obs: Se der um erro de conexão MySql. Derrube o docker com o comando abaixo e suba novamente. Depois disse execute o domando do doctrine para criar as tabelas.
+    Obs: Se der um erro de conexão MySql. Derrube o docker com o comando abaixo e suba novamente. Depois disso execute o comando do doctrine para criar as tabelas no banco.
     - Derrubando o docker
     ```
         cd ..
@@ -112,6 +112,12 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     - Subindo o docker
     ```
         sudo docker-compose up --build -d
+    ```
+    - Criando as tabelas no banco
+    ```
+      cd ..
+      cd src
+      php bin/console doctrine:database:create
     ```
 - Abra o seu navegador e escreva: localhost:80
 
