@@ -23,21 +23,10 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
         wget https://get.symfony.com/cli/installer -O - | bash 
     ```
 - Composer 1.10.1
-    ```
-        php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-        php -r "if (hash_file('sha384', 'composer-setup.php') === 'e5325b19b381bfd88ce90a5ddb7823406b2a38cff6bb704b0acc289a09c8128d4a8ce2bbafcd1fcbdc38666422fe2806') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-        php composer-setup.php
-        php -r "unlink('composer-setup.php');" 
-    ```
-
 - PHP 7.4-XML
     ```
       sudo apt-get install -y php7.4-xml  
     ```
- - MySQL
-     ```
-      sudo apt-get install php-mysql
-     ```
     
 ## Começo rápido
 - [Faça um clone do docker do projeto] (https://github.com/nvitiver/sistemafrete-docker)
@@ -62,6 +51,24 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     composer install
   ```
   Obs: Não confunda a pasta src do Symfony com a pasta src do docker. Esse projeto todo deve ser clonado dentro da pasta src ao lado da pasta docker.    
+
+
+- Crie o arquivo .env dentro da pasta src/ com o conteúdo que está no arquivo .env desse projeto. (https://github.com/nvitiver/sistemafrete/blob/master/.env)
+  - Para criar o arquivo
+  ```
+    touch .env
+  ```
+  - Para acessar o aquivo digite o comando abaixo e depois aperte a tecla i para editar.
+  ```
+    vi .env
+  ```
+  - Copie o conteúdo de (https://github.com/nvitiver/sistemafrete/blob/master/.env) e cole dentro do arquivo .env que foi criado.
+    Para colar pressione Ctrl + Shift + v
+
+  - Salve a sua alteração. Aperte Esc e execute o seguinte comando no terminal.
+  ```
+    :wq!
+  ```
 - Saia da pasta src e acesse a pasta docker
     ```
         cd ..
@@ -71,20 +78,17 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     ```
         sudo docker-compose up --build -d
     ``` 
-- Acesse a pasta src novamente
+ - Acesse a pasta src novamente
      ```
         cd ..
         cd src
      ```
-- Crie as tabelas no banco com a migration
+ - Execute o comando do doctrine para criar o banco
      ```
-        php bin/console doctrine:migrations:migrate
+        php bin/console doctrine:database:create
      ```
-- Confirme a migração 
 
 - Abra o seu navegador e escreva: localhost:80
-
-Pronto! ;)
 
 Obs:O MyPhpAdmin está em localhost:8090
 
