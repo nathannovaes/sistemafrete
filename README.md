@@ -17,6 +17,12 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 
 ## Pré-requisito
 - PHP 7.4^
+- A porta 80 precisa estar livre.
+- Symfony 5 precisa estar instalado. 
+    ```
+     wget https://get.symfony.com/cli/installer -O - | bash 
+    ```
+    
     
 ## Começo rápido
 - [Faça um clone do docker do projeto] (https://github.com/nvitiver/sistemafrete-docker)
@@ -36,6 +42,10 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
         cd ..
         rm -rf sistemafrete
     ```
+  - Rode os comandos de permissão dentro da pasta do projeto
+  ```
+  
+  ```
   Obs: Não confunda a pasta src do Symfony com a pasta src do docker. Esse projeto todo deve ser clonado dentro da pasta src ao lado da pasta docker.    
 - Saia da pasta src e acesse a pasta docker
     ```
