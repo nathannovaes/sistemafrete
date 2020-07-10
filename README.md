@@ -20,9 +20,13 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 - A porta 80 precisa estar livre.
 - Symfony 5 precisa estar instalado. 
     ```
-     wget https://get.symfony.com/cli/installer -O - | bash 
+        wget https://get.symfony.com/cli/installer -O - | bash 
     ```
 - Composer 1.10.1
+- PHP 7.4-XML
+    ```
+      sudo apt-get install -y php7.4-xml  
+    ```
     
 ## Começo rápido
 - [Faça um clone do docker do projeto] (https://github.com/nvitiver/sistemafrete-docker)
