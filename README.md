@@ -9,11 +9,10 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 
 ## Sumário
 
-- [Começo rápido](#começo-rapido)
-- [O que está incluído?](#o-que-esta-incluído)
-- [Documentação da API](#documentacao-da-api)
+- [Começo rápido](#começo-rápido)
+- [O que está incluído?](#o-que-está-incluído)
+- [Documentação da API](#documentaçâo-da-api)
 - [Autor](#autor)
-- [Copyright and license](#copyright-and-license)
 
 
 ## Começo rápido
@@ -99,7 +98,3 @@ Para facilitar o entendimento, funcionamento e documentação da API, foi utiliz
 - <https://github.com/nvitiver>
 
 
-
-## Copyright
-
-Docs released under [Creative Commons](https://creativecommons.org/licenses/by/3.0/).
