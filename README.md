@@ -22,10 +22,6 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
     ```
         wget https://get.symfony.com/cli/installer -O - | bash 
     ```
-- Symfony 5 precisa estar instalado. 
-    ```
-        wget https://get.symfony.com/cli/installer -O - | bash 
-    ```
 - Composer 1.10.1
     ```
         php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -61,12 +57,6 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
         cd ..
         rm -rf sistemafrete
     ```
-- Rode o composer dentro da pasta src
-  ```
-    composer install
-  ```
-  Obs: Não confunda a pasta src do Symfony com a pasta src do docker. Esse projeto todo deve ser clonado dentro da pasta src ao lado da pasta docker.    
-
 
 - Crie o arquivo .env dentro da pasta src/ com o conteúdo que está no arquivo .env desse projeto. (https://github.com/nvitiver/sistemafrete/blob/master/.env)
   - Para criar o arquivo
@@ -98,9 +88,16 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
         cd ..
         cd src
      ```
+- Rode o composer dentro da pasta src
+  ```
+    composer install
+  ```
+  Obs: Não confunda a pasta src do Symfony com a pasta src do docker. Esse projeto todo deve ser clonado dentro da pasta src ao lado da pasta docker.    
+
+     
 - Execute o comando do doctrine para criar as tabelas no banco
      ```
-        php bin/console doctrine:database:create
+        php bin/console doctrine:migrations:migrate
      ```
     Obs: Se der um erro de conexão MySql. Derrube o docker com o comando abaixo e suba novamente. Depois disso execute o comando do doctrine para criar as tabelas no banco.
     - Derrubando o docker
