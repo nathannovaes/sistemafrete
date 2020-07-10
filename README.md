@@ -27,17 +27,6 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 - Acesse o seu localhost
 - MyPhpAdmin está em localhost:8090
 
-
-- [Download the latest release](https://github.com/twbs/bootstrap/archive/v5.0.0.zip)
-- Clone the repo: `git clone https://github.com/twbs/bootstrap.git`
-- Install with [npm](https://www.npmjs.com/): `npm install bootstrap@next`
-- Install with [yarn](https://yarnpkg.com/): `yarn add bootstrap@next`
-- Install with [Composer](https://getcomposer.org/): `composer require twbs/bootstrap:5.0.0`
-- Install with [NuGet](https://www.nuget.org/): CSS: `Install-Package bootstrap` Sass: `Install-Package bootstrap.sass`
-
-
-
-
 ## O que está incluído?
 
 Fazendo o download você irá encontrar os seguintes diretórios e arquivos. Agrupados todos por lógica padrão do framework Symfony. Você encontrará algo semelhante a isso: 
