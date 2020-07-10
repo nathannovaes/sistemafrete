@@ -19,10 +19,11 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 
 [![1 - Symfony 5 - Introdução e terminal](http://img.youtube.com/vi/AxDCh96GuHg/0.jpg)](http://www.youtube.com/watch?v=AxDCh96GuHg "1 - Symfony 5 - Introdução e terminal")
 
+
 Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada etapa. Com esses vídeos um programador iniciante consegue ter os conhecimentos básicos sobre Doctrine, Twig, Comandos do Terminal, MVC, API e etc. E um programador mais experiente pode ter noção de como o projeto foi desenvolvido.  
 
 
-<a href="https://www.youtube.com/playlist?list=PLnzDO8mVGw5ezafW3cmdE7PreBLhBaOr7" target="_blank">Ver lista de vídeos</a>
+<a href="https://www.youtube.com/playlist?list=PLnzDO8mVGw5ezafW3cmdE7PreBLhBaOr7" target="_blank"><h3>Ver lista de vídeos</h3></a>
 
 
 ## Pré-requisitos
