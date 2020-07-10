@@ -108,7 +108,7 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
   ```
     :wq!
   ```
-  ![Passo 5](public/img/gifs/5.gif)
+   ![Passo 5](public/img/gifs/5.gif)
   
   
 - Rode o composer dentro da pasta src
@@ -131,7 +131,7 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
         sudo docker-compose up --build -d
     ```     
     
-  ![Passo 6](public/img/gifs/6.gif)
+   ![Passo 6](public/img/gifs/6.gif)
   
   
 - Acesse a pasta src novamente
@@ -143,7 +143,7 @@ Foi elaborada uma série de vídeos em que o projeto vai sendo explicado em cada
      ```
         php bin/console doctrine:migrations:migrate
      ```
- ![Passo 7](public/img/gifs/7.gif)
+   ![Passo 7](public/img/gifs/7.gif)
  
  
 - Abra o seu navegador e escreva: localhost:80
@@ -152,7 +152,7 @@ Obs:O MyPhpAdmin está em localhost:8090
 
 ## Veja o projeto funcionando
 
-![Passo 8](public/img/gifs/8.gif)
+ ![Passo 8](public/img/gifs/8.gif)
 
 ## O que está incluído?
 
