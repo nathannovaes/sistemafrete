@@ -18,7 +18,7 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 
 ## Começo rápido
 - [Baixe o docker do projeto] (https://github.com/)
-- Coloque o projeto dentro do diretório sistemafrete.
+- Coloque o projeto dentro do diretório sistemafrete-docker.
 - Acesse a pasta docker
 - Rode o comando 
 ```
@@ -42,39 +42,45 @@ O iFrete é um sistema que consiste em prover para o usuário a possibilidade de
 
 Fazendo o download você irá encontrar os seguintes diretórios e arquivos. Agrupados todos por lógica padrão do framework Symfony. Você encontrará algo semelhante a isso: 
 
-```text
-bootstrap/
-└── dist/
-    ├── css/
-    │   ├── bootstrap-grid.css
-    │   ├── bootstrap-grid.css.map
-    │   ├── bootstrap-grid.min.css
-    │   ├── bootstrap-grid.min.css.map
-    │   ├── bootstrap-reboot.css
-    │   ├── bootstrap-reboot.css.map
-    │   ├── bootstrap-reboot.min.css
-    │   ├── bootstrap-reboot.min.css.map
-    │   ├── bootstrap-utilities.css
-    │   ├── bootstrap-utilities.css.map
-    │   ├── bootstrap-utilities.min.css
-    │   ├── bootstrap-utilities.min.css.map
-    │   ├── bootstrap.css
-    │   ├── bootstrap.css.map
-    │   ├── bootstrap.min.css
-    │   └── bootstrap.min.css.map
-    └── js/
-        ├── bootstrap.bundle.js
-        ├── bootstrap.bundle.js.map
-        ├── bootstrap.bundle.min.js
-        ├── bootstrap.bundle.min.js.map
-        ├── bootstrap.esm.js
-        ├── bootstrap.esm.js.map
-        ├── bootstrap.esm.min.js
-        ├── bootstrap.esm.min.js.map
-        ├── bootstrap.js
-        ├── bootstrap.js.map
-        ├── bootstrap.min.js
-        └── bootstrap.min.js.map
+```
+.
+├── bin
+├── config
+│   ├── packages
+│   └── routes
+├── migrations
+├── public
+│   ├── css
+│   ├── img
+│   └── js
+├── src
+│   ├── Controller
+│   ├── Entity
+│   ├── Form
+│   ├── Repository
+│   └── Services
+├── templates
+│   ├── api_doc
+│   ├── orders
+│   ├── products
+│   └── quotations
+├── var
+│   ├── cache
+│   └── log
+└── vendor
+    ├── bin
+    ├── composer
+    ├── doctrine
+    ├── laminas
+    ├── nikic
+    ├── ocramius
+    ├── phpdocumentor
+    ├── psr
+    ├── sensio
+    ├── symfony
+    ├── twig
+    ├── webimpress
+    └── webmozart
 ```
 
 
